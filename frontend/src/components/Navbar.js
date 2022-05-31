@@ -30,11 +30,11 @@ function Navbar() {
             
           {JSON.parse(localStorage.getItem("currentUser"))?.name=="admin" && JSON.parse(localStorage.getItem("currentUser"))?.name !==null ? (
               <div class="dropdown mr-5">
-                <li class="nav-item active" style={{fontWeight:"bold",float:"left",borderRadius:"1.5rem",width:"7rem",height:"2.5rem",marginRight:"1rem",paddingTop:"0.1rem" ,backgroundColor:"#e72118"}}>
+                <li class="nav-item active" style={{fontWeight:"bold",float:"left",borderRadius:"1.5rem",width:"7rem",height:"2.5rem",marginRight:"0.5rem",paddingTop:"0.1rem" ,backgroundColor:"#e72118"}}>
                   <a class="nav-link" href="/home">
                     Rooms
                   </a></li>
-            <li class="nav-item active" style={{fontWeight:"bold",float:"left",borderRadius:"1.5rem",width:"7rem",height:"2.5rem",marginRight:"1rem",paddingTop:"0.1rem" ,backgroundColor:"#e72118"}}>
+            <li class="nav-item active" style={{fontWeight:"bold",float:"left",borderRadius:"1.5rem",width:"7.5rem",height:"2.5rem",marginRight:"0.5rem",paddingTop:"0.1rem" ,backgroundColor:"#e72118"}}>
                     <a class="nav-link" href="/adminscreen">
                       adminpanel
                     </a>

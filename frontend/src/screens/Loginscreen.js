@@ -18,16 +18,35 @@ export default function Loginscreen() {
     }
   }, []);
 
+
+
+  function emailValidation(email){
+    const regex = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+    if(!email || regex.test(email) === false){
+        
+        return false;
+    }
+    return true;
+}
+
+
+
+
+
   async function login() {
     const user = {
       email,
       password,
     };
     try {
-      setloading(true);
+      if(emailValidation(email)===true){
+      setloading(true);     
       const result = await (await axios.post("/api/users/login", user)).data;
       localStorage.setItem("currentUser", JSON.stringify(result));
-      window.location.href = "/";
+      window.location.href = "/";}
+      else{
+        alert(" please enter valid Email")
+      }
     } catch (error) {
       seterror(true);
       setloading(false);
@@ -49,7 +68,7 @@ export default function Loginscreen() {
           <div>
             <input
               required
-              type="text"
+              type="email"
               placeholder="Email: (tester@gmail.com)"
               className="form-control mt-1"
               value={email}
@@ -58,10 +77,11 @@ export default function Loginscreen() {
               }}
             />
             <input
-              type="text"
+              type="password"
               placeholder="Password: (tester@123)"
               className="form-control mt-1"
               value={password}
+              style={{fontWeight:"bold"}}
               required
               onChange={(e) => {
                 setpassword(e.target.value);

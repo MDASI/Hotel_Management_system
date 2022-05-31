@@ -14,18 +14,27 @@ export default function Registerscreen() {
   const[success, setsuccess]=useState(false) 
   
   async function register(){
-
-      if(password!=cpassword)
+    var passw=  /^[A-Za-z]\w{7,14}$/;
+      const regex = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+      if(!email || regex.test(email) === false){
+          
+        alert(" Please enter correct email")
+      }
+      else  if(password!=cpassword)
       {
           alert("passwords not matched")
       }
-      else{
-          const user={
-              name,
-              email,
-              password
-          }
-          
+      else if(!(password.match(passw)))
+      {
+        alert("password shoud be 8 character ")
+      }
+       else{
+        const user={
+            name,
+            email,
+            password
+        }
+  
           try {
             setloading(true)
             const result = await axios.post('/api/users/register',user)
@@ -59,17 +68,19 @@ export default function Registerscreen() {
           </h2>
           <div>
             <input required type="text" placeholder="name" className="form-control mt-1" value={name} onChange={(e)=>{setname(e.target.value)}} />
-            <input required type="text" placeholder="email" className="form-control mt-1" value={email} onChange={(e)=>{setemail(e.target.value)}} />
+            <input required type="email" placeholder="email" className="form-control mt-1" value={email} onChange={(e)=>{setemail(e.target.value)}} />
             <input
-              type="text"
+              type="password"
               placeholder="password"
+              pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+              style={{fontSize:"1rem"}}
               className="form-control mt-1"
               value={password}
               required
               onChange={(e)=>{setpassword(e.target.value)}}
             />
             <input
-              type="text"
+              type="password"
               placeholder="confirm password"
               className="form-control mt-1"
               value={cpassword}
