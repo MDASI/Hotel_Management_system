@@ -21,6 +21,7 @@
     "npm": "7.4.3"
   },
   "scripts": {
+    "build":"cd frontend && npm run build",
     "client-install": "npm install --prefix client",
     "server": "nodemon server.js",
     "client": "npm start --prefix client",
