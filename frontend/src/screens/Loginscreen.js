@@ -29,10 +29,6 @@ export default function Loginscreen() {
     return true;
 }
 
-
-
-
-
   async function login() {
     const user = {
       email,
