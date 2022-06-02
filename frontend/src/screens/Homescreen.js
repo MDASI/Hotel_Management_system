@@ -21,7 +21,7 @@ function Homescreen() {
   const [loading, setloading] = useState(false);
   const [searchkey, setsearchkey] = useState("");
   const [type, settype] = useState("all");
-  
+
   function filterByDate(dates) {
     setfromdate(moment(dates[0]).format("DD-MM-YYYY"));
     settodate(moment(dates[1]).format("DD-MM-YYYY"));
@@ -88,7 +88,9 @@ function Homescreen() {
         (room) => room.type.toLowerCase() === e.toLowerCase()
       );
       sethotels(dupdate);
-    } else {
+
+    } 
+    else {
       sethotels(duplicatehotes);
     }
   }
@@ -129,6 +131,7 @@ function Homescreen() {
               <option value="all">All</option>
               <option value="delux">Delux</option>
               <option value="non-delux">Non Delux</option>
+              <option value="Ac">Ac</option>
             </select>
           </div>
         </div>

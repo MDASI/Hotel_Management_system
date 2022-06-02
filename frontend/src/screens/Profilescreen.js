@@ -11,6 +11,8 @@ const { TabPane } = Tabs;
 const user = JSON.parse(localStorage.getItem("currentUser"))
 function Profilescreen() {
   return (
+    <div>
+    {JSON.parse(localStorage.getItem("currentUser"))?.name !=null ?(
     <div className="mt-5 ml-3">
       <Tabs defaultActiveKey="1">
         <TabPane tab="My Profile" key="1">
@@ -31,6 +33,12 @@ function Profilescreen() {
           </h1>
         </TabPane>
       </Tabs>
+    </div>
+    ):(
+      <div>
+        {window.location.href = "/login"}
+      </div>
+      )}
     </div>
   );
 }

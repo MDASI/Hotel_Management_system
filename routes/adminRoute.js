@@ -3,14 +3,12 @@ const express = require("express");
 //const { getMaxListeners } = require("../models/room");
 const router = express.Router();
 
-
-
 router.post("/adminlogin", async(req, res) => {
 
     const {email , password} = req.body 
     try {
 
-        if(email==="admin@gmail.com" && password==='123')
+        if(email==="admin@gmail.com" && password==='1234')
        {       
         /*const token="aaaaaaaaaaaaaaaaaaaaaaaaaa";
         cookie("jwt",token,{
@@ -29,10 +27,9 @@ router.post("/adminlogin", async(req, res) => {
             return res.status(400).json({ message: 'User Login Failed' });
         }
     }
-       
-    
+   
      catch (error) {
-           return res.status(400).json({ message: 'Something went weong' });
+           return res.status(400).json({ message: 'Something went wrong' });
     }
   
 });

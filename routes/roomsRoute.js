@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const Room = require("../models/room")
 const mongoose = require("mongoose");
+
 router.get("/getallrooms", async (req, res) => {
    
      try {
