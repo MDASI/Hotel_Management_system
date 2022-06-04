@@ -17,7 +17,9 @@ function Room({ room, fromdate, todate }) {
       return false;
     }
   };
-  
+  const handleShow3=()=>{
+    alert("Please Select date for booking")
+  }
   return (
     <div className="row m-3 p-3 bs">
       <div className="col-md-4" style={{float:"right"}}>
@@ -25,7 +27,7 @@ function Room({ room, fromdate, todate }) {
       </div>
       <div className="col-md-8">
         <h1>{room.name}</h1>
-        <p>Parking , Reception , Free Wifi</p>
+        <p><b>Price: {room.rentperday} per day</b></p>
         <p>
           <b>Max Count : {room.maxcount}</b>
         </p>
@@ -52,7 +54,10 @@ function Room({ room, fromdate, todate }) {
             >
               Book Now
             </button>
-          )}
+          )}{!fromdate && !todate &&(
+          <button className="btn btn-danger m-2" onClick={handleShow3} style={{float:"right"}}>
+            book
+          </button>)}
           <button className="btn btn-danger m-2" onClick={handleShow}>
             View Details
           </button>

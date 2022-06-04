@@ -3,6 +3,16 @@ const router = express.Router();
 const Room = require("../models/room")
 const mongoose = require("mongoose");
 
+
+/**@swagger
+  * /getallrooms:
+  *  get:
+  *   description: Api for getting all rooms
+  *   responses:
+  *      "200":
+  *        description: succesfully 
+  */
+
 router.get("/getallrooms", async (req, res) => {
    
      try {
@@ -14,7 +24,14 @@ router.get("/getallrooms", async (req, res) => {
 
 });
 
-
+/**@swagger
+  * /getroombyid:
+  *  post:
+  *   description: Api for getting room by id
+  *   responses:
+  *      "200":
+  *        description: succesfully 
+  */
 router.post("/getroombyid", async(req, res) => {
      console.log(req.body);
      try {
@@ -24,6 +41,7 @@ router.post("/getroombyid", async(req, res) => {
           return res.status(400).json({ message: error });
      }
 });
+
 
 router.get("/getallrooms", async(req, res) => {
      console.log(req.body);
@@ -35,6 +53,15 @@ router.get("/getallrooms", async(req, res) => {
      }
 });
 
+
+/**@swagger
+  * /addroom:
+  *  post:
+  *   description: Api for adding new rooms
+  *   responses:
+  *      "200":
+  *        description: room added succesfully 
+  */
 router.post("/addroom", async(req, res) => {
   const { room , 
      rentperday, maxcount ,description ,phonenumber ,type ,image1 ,image2 ,image3} = req.body

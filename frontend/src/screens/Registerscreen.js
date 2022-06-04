@@ -14,7 +14,7 @@ export default function Registerscreen() {
   const[success, setsuccess]=useState(false) 
   
   async function register(){
-    var passw=  /^[A-Za-z]\w{7,14}$/;
+    //var passw=  /^[A-Za-z@#%^*&1-9]\w{8,}$/;
       const regex = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
       if(!email || regex.test(email) === false){
           
@@ -24,9 +24,9 @@ export default function Registerscreen() {
       {
           alert("passwords not matched")
       }
-      else if(!(password.match(passw)))
+      else if(password.length<8 )
       {
-        alert("password shoud be 8 character ")
+        alert("password shoud be at least 8 character")
       }
        else{
         const user={

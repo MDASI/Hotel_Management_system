@@ -3,6 +3,14 @@ const express = require("express");
 //const { getMaxListeners } = require("../models/room");
 const router = express.Router();
 
+/**@swagger
+  * /adminlogin:
+  *  post:
+  *   description: Api for admin Login
+  *   responses:
+  *      "200":
+  *        description: admin login succesfully 
+  */
 router.post("/adminlogin", async(req, res) => {
 
     const {email , password} = req.body 

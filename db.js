@@ -1,9 +1,6 @@
 const mongoose = require("mongoose");
-
-var mongoDBURL =
-  "mongodb+srv://hotelManagement:aK788955@hotel0.0qomj.mongodb.net/?retryWrites=true&w=majority";
-
-mongoose.connect(mongoDBURL);
+mongoose.connect("mongodb+srv://hotelManagement:aK788955@hotel0.0qomj.mongodb.net/?retryWrites=true&w=majority"
+);
 
 var dbconnect = mongoose.connection;
 

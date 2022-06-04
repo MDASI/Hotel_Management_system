@@ -8,6 +8,15 @@ const stripe = require("stripe")(
 );
 const Booking = require("../models/booking");
 const Room = require("../models/room");
+
+/**@swagger
+  * /bookroom:
+  *  post:
+  *   description: Api for payment(using stripe) and booking room
+  *   responses:
+  *      "200":
+  *        description: room booked successfully
+  */
 router.post("/bookroom", async (req, res) => {
   const { room, fromdate, todate, totalDays, totalAmount, user, token } =
     req.body;
@@ -75,7 +84,14 @@ router.post("/bookroom", async (req, res) => {
     return res.status(400).json({ message: "Something went wrong" + error });
   }
 });
-
+/**@swagger
+  * /cancelbooking:
+  *  post:
+  *   description: Api for cancelling a booked room
+  *   responses:
+  *      "200":
+  *        description: room cancelled succesfully
+  */
 router.post("/cancelbooking", async (req, res) => {
   const { bookingid, roomid } = req.body;
 
@@ -99,6 +115,14 @@ router.post("/cancelbooking", async (req, res) => {
   }
 });
 
+/**@swagger
+  * /getuserbookings:
+  *  post:
+  *   description: Api for getting User all bookings 
+  *   responses:
+  *      "200":
+  *        description: succesfully 
+  */
 router.post("/getuserbookings", async (req, res) => {
   const { userid } = req.body;
   try {
@@ -108,7 +132,14 @@ router.post("/getuserbookings", async (req, res) => {
     return res.status(400).json({ message: "Something went wrong" });
   }
 });
-
+/**@swagger
+  * /getallbookings:
+  *  get:
+  *   description: Api for getting all bookings
+  *   responses:
+  *      "200":
+  *        description: succesfully
+  */
 router.get("/getallbookings", async (req, res) => {
   try {
     const bookings = await Booking.find({});

@@ -65,7 +65,7 @@ export default function Loginscreen() {
             <input
               required
               type="email"
-              placeholder="Email: (tester@gmail.com)"
+              placeholder="Email: (ao@gmail.com)"
               className="form-control mt-1"
               value={email}
               onChange={(e) => {
@@ -74,7 +74,7 @@ export default function Loginscreen() {
             />
             <input
               type="password"
-              placeholder="Password: (tester@123)"
+              placeholder="Password: (aK788955)"
               className="form-control mt-1"
               value={password}
               style={{fontWeight:"bold"}}
